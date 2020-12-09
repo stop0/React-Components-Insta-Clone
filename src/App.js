@@ -6,12 +6,12 @@
 
 // Import the state hook
 import React, { useState } from 'react';
-import posts from './components/Posts/Posts'
 import SearchBar from './components/SearchBar/SearchBar'
 import dummyData from './dummy-data'
 // Import the Posts (plural!) and SearchBar components, since they are used inside App component
 // Import the dummyData
 import './App.css';
+import Posts from './components/Posts/Posts';
 
 const App = () => {
   // Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
@@ -34,21 +34,23 @@ const App = () => {
         - otherwise just return the post object unchanged.
      */
     setPosts(posts.map = (e) => {
-      if (postId === e){
-        return { ... e}
+      if (e.id === postId){
+        return { ...e}
       }
       else{
         return e
       }
 
-    }
-    )}
+    })
+    
   };
 
   return (
     <div className='App'>
       {/* Add SearchBar and Posts here to render them */}
+      <SearchBar />
       {/* Check the implementation of each component, to see what props they require, if any! */}
+      <Posts likePost={likePost} posts={posts} />
     </div>
   );
 };
