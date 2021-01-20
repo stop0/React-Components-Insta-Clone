@@ -9,10 +9,10 @@ const Posts = (props) => {
   return (
     <div className='posts-container-wrapper'>
       {/* Map through the posts array returning a Post component at each iteration */}
-      {posts.map((postss) =>   {
+      {posts.map((postss) =>  {
       return (
         <Post 
-        post={postss.id}
+        post={postss}
         likePost = {likePost}
         />
       )
